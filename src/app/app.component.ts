@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'app works!';
+  onSubmit(title, link) {
+    console.log(title.value, link.value);
+  }
 }
