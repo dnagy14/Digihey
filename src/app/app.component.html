@@ -16,7 +16,7 @@
   </div>
 </div>
 <app-article [article]="article"
-  *ngFor="let article of articles"
+  *ngFor="let article of sortArticles()"
   (voteUp)="onVoteUp($event)"
   (voteDown)="onVoteDown($event)">
 </app-article>
