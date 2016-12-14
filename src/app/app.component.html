@@ -23,8 +23,9 @@
           class="form-control"
           [(ngModel)]="articleForm.link"
           #link="ngModel"
+          [ngClass]="link.valid || link.pristine ? '' : 'bg-danger'"
         />
-          <p [hidden]="link.valid || link.pristine" class="alert alert-danger">Upišite url</p>
+          <!-- <p [hidden]="link.valid || link.pristine" class="alert alert-danger">Upišite url</p> -->
       </div>
       <button type="submit"
         [disabled]="!articleForm.valid"
