@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from './article/article.model';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-root',

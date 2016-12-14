@@ -23,7 +23,7 @@
           class="form-control"
           [(ngModel)]="articleForm.link"
           #link="ngModel"
-          [ngClass]="link.valid || link.pristine ? '' : 'bg-danger'"
+          [ngClass]="link.valid || link.pristine ? '' : 'bg-warning'"
         />
           <!-- <p [hidden]="link.valid || link.pristine" class="alert alert-danger">Upišite url</p> -->
       </div>
