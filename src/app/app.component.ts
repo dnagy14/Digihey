@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from './article/article.model';
+import { FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.articles = [
       new Article ('Angular 1', 'https://angular-ui.github.io/bootstrap/', 1),
-      new Article ('Angular 2', 'https://angular-ui.github.io/bootstrap/', 4),
+      new Article ('Angular 2', 'https://angular-ui.github.io/bootstrap/', 2),
       new Article ('Angular 3', 'https://angular-ui.github.io/bootstrap/', 3),
     ];
-    // this.articles.sort( function(a, b) {return b.votes - a.votes; });
   }
 
   onVoteUp(article) {
@@ -32,8 +33,8 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit(newArticle) {
-    newArticle = new Article (newArticle.title, newArticle.link);
-    this.articles.push(newArticle);
+    this.articles.push(new Article (newArticle.title, newArticle.link));
+    console.log(this.articles);
   }
 
   sortArticles() {
