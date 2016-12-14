@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from './article/article.model';
-import { FormsModule, FormGroup, FormControl} from '@angular/forms';
+import { FormsModule, FormGroup, Form} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,11 @@ export class AppComponent implements OnInit {
 
   article: Article;
   articles = [];
+  title;
+  link;
 
   constructor() {
+    this.article = new Article();
   }
 
   ngOnInit() {

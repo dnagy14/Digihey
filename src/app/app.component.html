@@ -9,10 +9,10 @@
           name="title"
           required
           class="form-control"
-          [(ngModel)]="articleForm.title"
+          [(ngModel)]="article.title"
           #title="ngModel"
         />
-        <p [hidden]="title.valid || title.pristine" class="alert alert-danger">Upišite ime</p>
+        <p *ngIf="!(title.valid || title.pristine)" class="alert alert-danger">Upišite ime</p>
       </div>
       <div class="form-group">
         <label for="link">Link</label>
@@ -21,7 +21,7 @@
           name="link"
           required
           class="form-control"
-          [(ngModel)]="articleForm.link"
+          [(ngModel)]="article.link"
           #link="ngModel"
           [ngClass]="link.valid || link.pristine ? '' : 'bg-warning'"
         />
