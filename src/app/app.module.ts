@@ -11,6 +11,7 @@ import { ToDoListComponent } from './todolist/todolist.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { CustomPipe } from './custompipe.pipe';
 
 const appRoutes: Routes = [
 
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     ToDoListComponent,
     PageNotFoundComponent,
     LayoutComponent,
-    LoginComponent
+    LoginComponent,
+    CustomPipe
   ],
   imports: [
     BrowserModule,
