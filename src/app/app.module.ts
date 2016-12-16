@@ -1,49 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
+// root component
 import { AppComponent } from './app.component';
-import { RedditComponent } from './reddit/reddit.component';
-import { ArticleComponent } from './article/article.component';
-import { ToDoListComponent } from './todolist/todolist.component';
-import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+
+// layout component
 import { LayoutComponent } from './layout/layout.component';
-import { LoginComponent } from './login/login.component';
-import { CustomPipe } from './custompipe.pipe';
 
-const appRoutes: Routes = [
+// feature modules
+import { RedditModule } from './reddit/reddit.module';
+import { LoginModule } from './login/login.module';
+import { PageNotFoundModule } from './pagenotfound/pagenotfound.module';
+import { ToDoListModule } from './todolist/todolist.module';
 
-  { path: '',
-    component: LayoutComponent,
-    children: [
-      { path: '', redirectTo: 'reddit' },
-      { path: 'reddit', component: RedditComponent},
-      { path: 'todolist', component: ToDoListComponent},
-  ]},
-  { path: 'login', component: LoginComponent},
-  { path: '**', component: PageNotFoundComponent}
 
-];
 
 @NgModule({
   declarations: [
     AppComponent,
-    RedditComponent,
-    ArticleComponent,
-    ToDoListComponent,
-    PageNotFoundComponent,
     LayoutComponent,
-    LoginComponent,
-    CustomPipe
+
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule,
+
+    LoginModule,
+    PageNotFoundModule,
+    ToDoListModule,
+    RedditModule
   ],
   providers: [],
   bootstrap: [AppComponent]
