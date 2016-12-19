@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
-import { AlertInterface} from './alert/alert-interface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 
 @Injectable()
 export class AlertService {
 
-  private alerts: Array<AlertInterface> = [];
-  private _alerts$: BehaviorSubject<any>;
+  private alerts = [];
+  private _alerts$: Subject<any>;
   public alerts$: Observable<any>;
 
   constructor() {
     // this.alerts.push({type: 'success', message: 'alert'});
-    this._alerts$ = new BehaviorSubject<any>([]);
+    this._alerts$ = new Subject<any>();
     this.alerts$ = this._alerts$.asObservable();
   }
 
   newAlert(type, msg) {
-    this.alerts.push({type: type, message: msg});
-    this._alerts$.next(this.alerts);
-    console.log(this.alerts$);
+    // this.alerts.push({type: type, message: msg});
+    this._alerts$.next(new Date());
+    // console.log(this._alerts$);
     // setTimeout(() => this.closeAlert(alert), 2000);
   }
 

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from './article/article.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AlertService } from '../alert.service';
+import { NewAlertServiceService } from '../new-alert-service.service';
 
 @Component({
   selector: 'app-reddit',
   templateUrl: './reddit.component.html',
   styleUrls: ['./reddit.component.sass'],
-  providers: [AlertService]
 })
 export class RedditComponent implements OnInit {
 
@@ -17,7 +16,9 @@ export class RedditComponent implements OnInit {
   link;
   articleForm;
 
-  constructor( private _alertService: AlertService ) {
+  constructor(
+    private _newAlertService: NewAlertServiceService
+   ) {
   }
 
   ngOnInit() {
@@ -42,17 +43,17 @@ export class RedditComponent implements OnInit {
 
   onVoteUp(article) {
     article.voteUp();
-    this._alertService.newAlert('success', 'voteup');
+    this._newAlertService.newAlert('success', 'Article voted up');
   }
 
   onVoteDown(article) {
     article.voteDown();
-    this._alertService.newAlert('warning', 'votedown');
+    this._newAlertService.newAlert('danger', 'Article voted down');
   }
 
   onSubmit(newArticle) {
     this.articles.push(new Article (newArticle.title, newArticle.link));
-    this._alertService.newAlert('info', 'newarticle');
+    this._newAlertService.newAlert('info', 'Added new article');
     this.articleForm.reset();
   }
 

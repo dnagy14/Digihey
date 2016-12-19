@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from '../alert.service';
 import { AlertInterface } from './alert-interface';
+import { NewAlertServiceService } from '../new-alert-service.service';
 
 @Component({
   selector: 'app-alert',
   template: `
-    <p class="notification" *ngFor="let alert of alerts">
-      <ngb-alert [dismissible]="true" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+    <p class="notification">
+      <ngb-alert *ngFor="let alert of alerts; let i = index" [dismissible]="true" [type]="alert.type" (close)="closeAlert(i)">{{ alert.message }}</ngb-alert>
     </p>
   ` ,
 styleUrls: ['./alert.component.sass'],
@@ -16,20 +16,19 @@ export class AlertComponent implements OnInit {
 
   private alerts = [];
 
-  constructor( private _alertService: AlertService ) {
+  constructor( private _newAlertService: NewAlertServiceService ) {
 
   }
 
   ngOnInit() {
-    // this.alerts.push({type: 'danger', message: 'poruka'});
-    this._alertService.alerts$.subscribe(
+    this._newAlertService.alertObs$.subscribe(
       (res) => {
-        console.log(res);
+        this.alerts = res;
       }
     );
   }
 
   closeAlert(alert) {
-    this._alertService.closeAlert(alert);
+    this._newAlertService.closeAlert(alert);
   }
 }

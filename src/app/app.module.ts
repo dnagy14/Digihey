@@ -18,6 +18,7 @@ import { AlertComponent } from './alert/alert.component';
 
 // services
 import { AlertService } from './alert.service';
+import { NewAlertServiceService } from './new-alert-service.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { AlertService } from './alert.service';
     RedditModule,
     NgbModule.forRoot(),
   ],
-  providers: [AlertService],
+  providers: [AlertService, NewAlertServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
