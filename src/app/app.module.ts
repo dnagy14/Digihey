@@ -17,7 +17,6 @@ import { ToDoListModule } from './todolist/todolist.module';
 import { AlertComponent } from './alert/alert.component';
 
 // services
-import { AlertService } from './alert.service';
 import { NewAlertServiceService } from './new-alert-service.service';
 
 @NgModule({
@@ -35,7 +34,7 @@ import { NewAlertServiceService } from './new-alert-service.service';
     RedditModule,
     NgbModule.forRoot(),
   ],
-  providers: [AlertService, NewAlertServiceService],
+  providers: [NewAlertServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

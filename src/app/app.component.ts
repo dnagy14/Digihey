@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { AlertService } from './alert.service';
-
 
 @Component({
   selector: 'app-root',
@@ -11,7 +9,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     <app-alert></app-alert>
     <router-outlet></router-outlet>
   `,
-  // providers: [AlertService]
 })
 export class AppComponent implements OnInit {
 
